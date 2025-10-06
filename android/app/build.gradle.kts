@@ -42,3 +42,28 @@ android {
 flutter {
     source = "../.."
 }
+
+android {
+    compileSdkVersion 34 // or your current version
+
+    compileOptions {
+        // Enable core library desugaring
+        coreLibraryDesugaringEnabled true
+
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        // ... your existing config (applicationId, minSdkVersion, etc.)
+        minSdkVersion 21 // or whatever you use (desugaring works even on API 21+)
+        targetSdkVersion 34
+    }
+}
+
+dependencies {
+    // ... other dependencies
+
+    // Add this line for core library desugaring
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.3'
+}
